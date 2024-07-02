@@ -451,7 +451,6 @@ Ogranicenja mogu da budu klase,strukture,interfejsi i tako dalje
 
 Koje su razlike izmedju klasicne genercike i ove sa Object
 
-Pa Object je usran tebrooo
 
 Klasicna Genericka :
 
@@ -460,7 +459,7 @@ Klasicna Genericka :
 -ako ocu da vrsim nesto van klase ne mora ga kastujem (fala bogu)
 
 Object:
-sve suprotno bas je blam koj kurac
+sve suprotno 
 
 
 IZUZECIII
@@ -493,13 +492,13 @@ IZUZETAK U C++
 Moze biti bilo kog tipa
 
 Kada se do njega dodje mi ga odrukamo (exception-throwing)
-nakon sto smo ga bacili hehe moramo negde da ga obradimo pa ga obradjujemo u delu koj je odredjen za to (exception-handling) AAAAAAAAA
+nakon sto smo ga bacili  moramo negde da ga obradimo pa ga obradjujemo u delu koj je odredjen za to (exception-handling) AAAAAAAAA
 
 EVO PRIMER ALOO
 
-double podelisine(d a , d b){
+double podeli(d a , d b){
 	if(d b == 0 ){
-	throw "DEBILI GLUPI ALOOOO";
+	throw "ALOOOO";
 	}
 	else{
 	return a/b;
@@ -507,7 +506,7 @@ double podelisine(d a , d b){
 }
 int main(){
 	try{
-	podelisine(a,b);
+	podeli(a,b);
 
 	}
 	catch(const char* policija){
@@ -520,14 +519,14 @@ Ako imamo funkciju koja baca izuzetke VAN (outside pronto) trycatch bloka onda t
 
 void ALAHJEVELIKI() throw (int ,char*) 
 
-ti tipovi izuzetaka se bacaju hehe u toj funkc
+ti tipovi izuzetaka se bacaju  u toj funkc
 
 KOMPAJLER DRUKA NA GRESKU AKO :
 1. Nismo obradili neki tip podataka
-2. bacimo hehe neki tip podataka koj nije naveden GORE AIAENOFNEOFNAIFONEAFIAN
+2. bacimo  neki tip podataka koj nije naveden GORE AIAENOFNEOFNAIFONEAFIAN
 
 
-MOGU I DA ZABRANIM FUNKCIJI DA DRUKA to jest da baca hehe izuzetke
+MOGU I DA ZABRANIM FUNKCIJI DA DRUKA to jest da baca izuzetke
 
 Marko Jack : A kako to izgleda kad zabranim funkciji da baca izzuetke??
 Pa to izgleda ovako :
@@ -550,7 +549,7 @@ sluzi da oslobodi resurse koji su zauzeti ako je izuzetak odrukan
 
 VRSTE IZUZETAKA U JAVI :
 
-Ako se neki objekat prijavljuje kao izuzetak on mora da bude izveden iz klase THROWABLE ( jer ne mozes da bacas hehe ono sto ne moze da se baca hehe)
+Ako se neki objekat prijavljuje kao izuzetak on mora da bude izveden iz klase THROWABLE ( jer ne mozes da bacas  ono sto ne moze da se baca )
 
 OSTALE KLASICE:
 Error , Exception , RuntimeException
