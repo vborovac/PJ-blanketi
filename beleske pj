@@ -1,0 +1,803 @@
+Programi pisani u asemblerskom jeziku se prevode na masinski jezik koristeci prevodice kao sto su asembler
+Programi koji su pisani na markoasemblerskom kodu korist eprevodioce kao sto su makroasembleri prilikom prevodjenja na masinski kod
+
+Makroasembleri funkcionisu tako sto se dele na makroprocesoer i asemblere,makroprocesori naredbe prevode na asemblerski jezik dok asembleri to prevode na masinski kod
+
+Prevodioci se dele na kompilatore , interpretatore i hibridne
+
+Kompilatori - Prevode ceo kod i kreiraju izvrsnu verziju koja s enakon toga moze pokretati vise puta
+Interpretatori - prevode nardbu po naredbi i izvrsavaju je 
+Hibridei - kompilatorom prevode kod na medjukod koj je slican asemblerskom nakon toga koriste interpretatore da bi preveli kod do kraja i potom ga izvrsili
+
+
+Programski jezici sa statickom i dinamckom tipizacijom 
+
+Staticka tipizacija :
+
+Tip promenjivih ostaje const kroz ceo program
+Promenjive se proveravaju u toku prevodjenja programa 
+Svaka promenjiva se mora deklarisati na pocetku 
+
+Dinamicka tipizacija :
+
+Tip promenive se moze menjati u toku programa
+Provera tipa ide u toku izvrsenja programa
+Nije potrebna deklaracija
+
+Slaba Tipizacija : 
+Pristna kod programskih jezika C i C++ 
+Ona dozvoljava mesovite izraze jer se na tip gleda samo kao na format (koliko mesta zauzima u memorije) te se vrsi implicitna konverzija medjutim moguce je gubljenje podataka
+
+Jaka Tipizacija :
+Pristuna kod C i C#
+Ovamo tip oznacava skup vrednosti i tacno je poznat format,operacije koje se mogu izvrsiti nad ovim tipom kao i odnos ovog tipa sa drugim tipovima
+Mesoviti izrazi nisu dozvoljeni i moguca je dodela samo odgovarajuceg tipa.Doduse dozvoljena je dodle nizeg tipa visem recimo inta dublu	
+
+Tipovi podataka se dele na vrednosne i referentne
+Za vrednosne tipove podataka se odma rezervise prostor u memoriji 
+Za referentne tipove pamti se samo ime koje ce se koristiti za objekat koj ce se kasnije pri izvrsenju koda kreirati ,oni su u dinamckoj zoni memorije i sve dok nisu inicijalizovani imaju vrednost null
+
+Java:
+Referentni :
+Klase i interfejsi,Enumeracije,Polja
+Vredsnoni :
+Primitivni tipovi 
+
+C#
+Referentni :
+Klase i interfejsi,delegati,polja
+Vrednosni
+Primitivni tipovi , enumeracije , strukture 
+
+Polja
+Postoje polja u statickoj i dinamckoj zoni memorije 
+u statickoj je dobro poznat broj elemenata i on se odma rezervise recimo
+int a[34];
+u dinamcok zoni je poznat broj elemenat atek u fazi izvrsenja programa i za pristup takvim elementima u programskom jeziku C se koriste pokazivaci
+U C++:
+Polja su staticki tipovi podataka te im se ne moze menjati velicina tokom zivotnog ciklusa
+U C# i JAva
+Polja u ovim programskim jezicima su uvek smestena u dinamckoj zoni memorije 
+i pristupa im se preko reference
+
+C#
+<tip> [] <naziv>
+
+Java
+<tip> [] <naziv> ili <tip> <naziv>
+
+sadrze lenght koja predstavlja broj elemenata
+
+Dvodimenzionalna polja 
+
+C#
+<tip> [,] <naziv>;
+mat = new int [10,10];
+
+Java 
+<tip> [] [] <naziv>;
+
+Enumeracije
+
+Enumeracije predstavljaju skup celebrojnih simbolicnih konstani
+Elementi u enumeracji se razlikuju po imenu i ako im nije dodeljena vrednost podrazumeva se da je vrednost 0
+
+Enumeracije u C i C++
+
+enum Dani {Pon=1,Uto,Sre}
+Dani dan = Uto;
+
+Enumeracije u Java
+
+<pristup> enum <ime>
+public enum Pijaca {
+	Kruske,
+	Jabuke,
+	Mango
+}
+Pijaca jacpi = Pijaca.Kruske;
+
+Enumeracije u C#
+
+<pristup> enum <ime> : <tip podataka> {}
+
+public enum pijaca : byte {
+	Kruska=1
+	Tresnja,
+	Mango
+}
+
+Strukture?
+
+Strukture ne postoje u javi
+
+Strukture u C#
+Strukture su vrednosni tip podataka koj je slozen i sastoji se od vise elemenata razlitigo tipa,svi elementi imaju razlicito ime kako bi posle mogli da se pozovu u kodu
+
+struct Tacka{
+	double x;
+	double y;
+}
+
+Liste
+
+Liste su dinamcki tip podataka , kod njih se maksimalan broj elemenata moze menjati u toku izvrsenja programa
+ELement u listi se sastoji iz dva dela , vrednsoni deo i info deo koj obicno sadrzi pokazivac na sledeci element u listi.Vrse se operacije kao sto su brisanje,dodavanje i obilazak 
+
+Brisanje : pocetak,kraj , oznaceni element
+Dodavanje : pocetak , kraj , iza oznacenog elementa
+Nisu ugradjeni tipovi te je potrebno pozvati biblioteku 
+C#
+System.Collections.Generic.LinkedList<T>
+Java
+java.util.LinkeList<T>
+
+Asocijativne Liste
+
+Asocijativne liste su dinamcki tip podataka (Dictionary) koj se sadrzi iz dva dela vrednost i kljuc...Elementima pristupamo pomocu kljuca 
+<ime recnika> = { <k1>:<v1> , <k2>:<v2>}
+
+ne postoje kao ugradjeni tipovi te se mora pozvati biblioteka 
+
+Java:
+java.util.Dictionary<K,V>
+C#:
+System.Collections.Generic.Dictionary<K,V>
+
+
+Naredbe prekida u C++ i Java
+countinue 
+Ova naredba prekida iteraciju petlje 
+Java ima i countinue label; ona prekida iteraciju odrednje petlje
+
+break
+Ova naredba prekida programsku strukturu
+Java ima i break label koja prekida odredjenu programersku strukturu
+
+return 
+Vraca trazeni(odredjeni) izraz
+
+throw 
+Obicno se koristi kod izuzetaka prekida tekucu strukturu , ugnjezdenu strukturu ili niz pozvanih funkcija
+
+
+Foreach petlja u Javi
+Foreach petlje se uglavnom koriste za kolekcije 
+
+U javi 
+for(<var>:<collection>){}
+for(int element in a){
+	blabla;
+}
+Kolekcija moze da se nadje u vidu polja ili u vidu klase koja implementira interfejs Collection
+
+u C#
+foreach(<var> in <collection>)
+forech(Kola a in automobili){}
+KOlekcija moze da bude polje ili moze da bude klasa koja implementira neki od interfejsa
+System.Collection.IEnumarable
+System.Collection.IEnumerator
+System.Collection.Generic.IEnumearable
+System.Collection.Generic.IEnumerator
+
+
+
+Prenos parametra moze biti po referenci i po vrednosti 
+Po vrednosti :
+U memoriji se oslobadja prostor za fiktivni parametar gde se kasnije upisuje onaj stvarni
+Po referenci 
+Fiktivni parametar zapravo predstavlja stvarni parametar
+Takodje se mogu prenositi po rezultatu , po vrednosti i rezultatu i po imenu 
+
+Po rezultatu 
+Vrednost iz fomralnog parametra s eprenozi na stvarni parametar
+
+Po imenu 
+Prenosi se simbolicno ime promenjive
+
+Prenos Parametara u Javi
+
+Prenos parametra je moguc samo po vrednsosti
+Prenos po vrednosti :
+Oslobadja se memorija za  parametar koja se kasnije koristi da se smesti stvarni argument
+Promena na parametru po vrednosti ne utice na stvarni argument
+
+Prenos parametra po referenci 
+Kada se pozove ovakva funkcija ne kreira se novi objekat vec referenca na taj objekat
+Promena na objektu u metodi utice na stvari objekat...
+ako imamo parametar koj mozemo  da zamenimo sa vise parametra to se oznacava ovako
+
+prosek (int...ocene){}
+
+Prenos parametra u C#
+Prenos parametra u C# postoji u vidu ulaznog , izlaznog i ulazno-izlaznog
+
+ulazni - default... ispred parametra ne stoji nikakava definicija
+izlazni - ispred parametra stoji kljucna rec out
+ulazno-izlazni - ispred parametra stoji kljucna rec ref
+
+VREDNOSNI TIP
+
+Ulazni
+
+broj = 10;
+
+void povecaj(int broj){
+	
+	 broj=broj+1;
+}
+//broj nakon ovog ce biti 10
+
+Ovamo se prosledjuje po vrednosti sto znaci da se pravi kopija prosledjenog podatka koj van ove metode ostaje isti...Kao argumenti mogu da se koriste promenjive,konstante i izrazi odgovarajuceg tipa
+
+Ulazno - izlazni
+
+broj = 10;
+void povecaj (ref int broj){
+	broj = broj+1
+}
+//broj nakon ovog ce biti 11
+
+Posto se argument prosledjuje po referenci stedi se na memoriji jer se ne pravi kopija...Ovo naravno utice na broj ( u primeru) te ce on promeniti vrednost nakon ove funkcije.U ovom slucaju se moze proslediti samo promenjiva.
+
+static void izracunaj zbir(int b1,int b2,out int zbir){
+	zbir = b1+b2
+}
+//main
+int rezultat; 
+int zbir(3,5,rezultat);
+U ovom slucaju rezultat nije morao da bude inicijalizovan na pocetku jer ima kljucnu rec out na pocetku...
+out se obicno koristi kada hocemo da metoda vraca vise vrednosti.Ovamo je takodje prosledjeno po referenci , ne pravi se kopija , stedi se memorija i metoda menja vrednost stvarnih argumenata izvan same metode.
+
+REFERENTNI TIP
+
+Ulazni - pravi kopiju reference na taj objekat koj je prosledjen i ima sposobnost da ga promeni u metodi medjutim metoda nema sposobnost da menja neki drugi objekat
+
+Ulazno-Izlazni
+Prosledjuje se originalna referenca (ne pravi se kopija),parametru se moze proslediti drugi objekat
+
+kod parametra out stvarni argument moze da ima i vrednost null
+kod parametra ref referenca prvo mora biti inicijalizovana
+
+Podrazumebane vrednosti :
+U C# i C++ mogu postojati podrazumevane vrednsosti za neke parametre
+
+void funkcija(float a=0.5f,int b =9){}
+//main 
+funckija() // dozvoljeno
+
+podrazumevane vrednosti su dozvoljene samo za poslednje parametre u lsiti
+
+PARAMS = funkcija se poziva vise puta za isti tip
+
+void ocene (params int ocena[])
+
+
+Apstrakcija
+
+Apstrakcija je nacin da se pojednostave kompleksni entiteti tako sto se gleda na njih kroz najvaznije osoboine a ignorisu detalji
+Deli se na apstrakciju podataka i procesa
+
+Apstraktni tip podataka
+Deklaracija podataka i operacije nad tim podacima se definisu u jednom modulu,u drugim modulima se mogu koristiti samo kao deklarisane promenjive tog tipa 
+( EKAPSULACIJA )
+
+Sredstva za apstrakciju podataka 
+Proceduralni jezici - moduli
+Objektno-orijentisani jezici - klase
+
+Modul se moze podeliti na "javni" i "skriveni" deo 
+
+Javni deo ili interfejs:
+On sadrzi deklaracije tipa svih  podataka i deklaracije metoda(potprograma)koje te podatke korist ei maniplisu sa njima
+
+Skriveni deo ili implementacija:
+Ona sadrzi "suv kod" odnosno kod koji opisuje te metode
+
+Koncept objektno orijentisanog programiranja?
+
+Svaki podatak u ovakvom stilu programiranje je zapravo objekat.Svaki objekat ima svoje podatke koji opisuje njegovo stanje i metode koje opisuju njegovo ponasanje.Objekti medjusobno komuniciraju pozivanjem funkcija.Svaki objekat ima svoj tip.
+
+ENKAPSULACIJA
+Svaka klasa sadrzi skup podataka koje opisuju stanje objekta i metode koje opisuju njegovo ponasanje
+
+Imamo pravo pristupa tim podacima :
+public,protected,private...
+deafult = private;
+
+U C++ deklaracija promenjivih i metoda je odvojena od implementacije 
+.h fajl -> dekalracija
+.cpp fajl -> implementacija
+
+U Javi?
+Implementacija se vrsi direktno u klasi
+Pravo pristupa je preko paketa...
+Sve klase u okviru istog paketa imaju pravo pristupa na sve metode i promenjive ostalih klasa
+Enkapsulacija je slabije od C++ i ona je na nivou paketa 
+
+u C# ?
+Imlpementacije se vrsi direktno u klasi
+Dodati atributi koji mogu biti javni a unutar klase su uz funkcije (get i set);
+Dodatna prava pristupa :
+
+Internal - svi clanovi vidljivi u okviru istog assemblyija
+Protected internal - svi clanovi vidljivi u okviru istog assemblyija kao i njihove izvedene klase
+
+Enkapsulacije na nivou assemblija
+
+Sta je nasledjivanje
+
+Nasledjivanje je mogucnost u Objektno orijentisanom programiranju da se postojeca klasa prosiri na druge klase
+
+Klasa koja je nasledjena ima sve atribute i metode od osnovne klase ali isto tako moze i da dodaje neke atribute koji su specificni za nju.Takodje moze da menja nacin izvodjenja metoda iz osnovne kalse tako da se one prilagode njoj.
+
+Nasledjivanje u C++
+
+class Pijaca : Farma
+
+Nasljedjivanje u X#
+
+class Pijaca : Farma
+
+Nasledjivanje u Javi
+
+class Pijaca extends Farma
+
+C++
+private : objekat izvedene klase je objekat roditeljske klase
+
+protected
+
+public : objekat izvedene klase je deo objekta roditeljske klase
+
+C# & JAVA
+postoji samo jedan nacin izvodjenja koji je isti kao javni nacin izvodjenja kod C++
+ako je potrebno da jedan objekat bude deo druge onda s eon navodi kao atribut
+
+POLIMORFIZAM
+
+Moguce su razlicite implementacije istozvanih metoda u osnovnoj klasi i u klasam koje su nasledjene
+isto tako razliciti objekti mogu da odgovore razlicito na poziv iste funkcije
+
+KLASA OBJECT
+
+U Java
+
+Iz ove klase su izvedene sve klase u javi(zena majka kraljica)
+Ako neka klasaa nema roditeljsku klasu ona je direktno izvedena iz klase Object
+
+U C#
+Svi tipovi podataka su izvedeni iz klase object
+
+APSTRAKTNE KLASE
+
+Apstraktne klase imaju bar jednu aprstaktnu metodu u njima
+Nije moguce kreirati objekat apstraktne klase
+KOrsite se kao kalup za pravljenje drugih klasa
+
+C ++ vritual = 0
+C# abstract
+Java abstract
+
+Interfejsi su skup abstrakntih atributa i metoda
+
+Metode iz interfejsa uvek moraju da bude abstraktne i avne
+
+U Javi
+clanovi interfejsa mogu biti i atributi ali pod uslovom da su javni staticki i konstanti
+U C# 
+clanovi interfejsa mogu da budu delegati,eventi i properties
+
+C# class <KLASA> : <imeInterfejsa>
+Java class <KLASA> implements <imeInterfejsa>
+
+Genercike klase
+
+Funkcije ili klase koje realizuju cesto koriscene algoritme sa nepoznatim tipom podataka se nazivaju se genericke metode ili klase
+
+Templejti C++
+Generici C# i java
+
+Templejt u C++
+
+template <classT>
+
+GENERICI U JAVI
+
+Prvo se smatralo da nisu potrebni i da se moze korisiti klasa Object ali je problem bio stalno kastovanje
+
+Parametar templejta moze biti samo referentni tip jer se za primitivne tipove koriste wrapperi 
+int = Integer
+float = Float
+
+Bibloteke gde se mogu naci genereci 
+ArrayList,Dictonary,Vector,LinkedList
+
+Parametar templejte sa moze koristiti kao :
+Tip atributa
+Tip parametra u metodi 
+Povratni tip metode
+
+
+class AAAA <T> { }
+
+Postoje i ogranicenja recimo ako hocemo da genericka klasa mora biti podklasa neke klase ili mora implementirati neki interfejs recimo
+
+class AAAAA <T extends BAZA & Comparable <T>
+
+Takodje se umesto T moze raditi i sa wildcards " ? " koji omogucavaju vecu fleksibilnost
+
+
+U C#? 
+
+Parametar templejta moze biti samo tip
+Na mestime gde se on nalazi moze biti i primitivan tip a ne mora wrapper kao u smrdljivoj ljigavoj odvratnoj javi
+
+Postoje genericke i negenericke biblioteke 
+Genericke bilbiotele : List,Dictioanry,Stack
+Negenercike : ArrayList
+
+Negenericke biblioteke se koriste na pricnipu klase Object sto znci da recimu u nizu ArrayList mogu stojati vise objekata razlitiog tipa
+
+Genericke biblioteke prave niz samo jednog tipa
+
+Postoje i ogranicenja u C# ali ona idu po principu where
+
+class Djubre < T > where T : IComparable
+
+sada djubre mora da implementira metodu icomparable
+
+Ogranicenja mogu da budu klase,strukture,interfejsi i tako dalje
+
+Koje su razlike izmedju klasicne genercike i ove sa Object
+
+Pa Object je usran tebrooo
+
+Klasicna Genericka :
+
+-svi objekti u nizu su istog tipa
+-postoje ogranicenja
+-ako ocu da vrsim nesto van klase ne mora ga kastujem (fala bogu)
+
+Object:
+sve suprotno bas je blam koj kurac
+
+
+IZUZECIII
+
+Izuzetak je svaki ocekivan ili neoceivan dogadjaj koji se moze otkriti hardverski ili softverski i zahteva posebnu obradu
+
+E sad postoje progarmi koji mogu da rese izuzetak i oni koji to nazalost ne mogu
+
+Oni koji nemaju odredjen sistem za resavanje izuzetaka izzuetak se prosledjuje oeprativnom sistemu i on stampa poruku i prekida program
+
+Ako program kojim slucajem ima mogucnost da taj izuzetak resi
+
+-prijavljuje se izuzetak 
+- u posebnim delovima koda s eon resava ili se trazi altrenativan nacin da se on izbegne
+
+Resavanje izuzetaka pomocu staunsog parametra ::
+
+Nekoj metodi s edodeli statusni parametar,ukoliko se desi izuzetak taj statusni parametar se menja
+
+Pri vracanju ove metode uvek se ispise vrednost statusnog parametra
+
+NEDOSTATAK :
+mnogo if grananja
+
+Drugi nacin je da se potrprogramu prosledi funkcija koja je specijalizovana za obradu izuzetaka
+Ona se nalazi u posebnom (odvojenom ) modulu i u tom potprogramu se prosledjuje kao parametar (uglavnom u catch bloku),problem kod ovog nacina jeste sto ih moze imati previse odnosno jedan poziv se koristi za jedan izuzetak ako ih slucajno imamo vise u metodi moze doci do INFESTACIJE BUAHAHAAH
+
+IZUZETAK U C++
+
+Moze biti bilo kog tipa
+
+Kada se do njega dodje mi ga odrukamo (exception-throwing)
+nakon sto smo ga bacili hehe moramo negde da ga obradimo pa ga obradjujemo u delu koj je odredjen za to (exception-handling) AAAAAAAAA
+
+EVO PRIMER ALOO
+
+double podelisine(d a , d b){
+	if(d b == 0 ){
+	throw "DEBILI GLUPI ALOOOO";
+	}
+	else{
+	return a/b;
+	}
+}
+int main(){
+	try{
+	podelisine(a,b);
+
+	}
+	catch(const char* policija){
+	std::cout<<policija<<std::endl;
+	}
+}
+
+U C++ !!!!!!!!!!
+Ako imamo funkciju koja baca izuzetke VAN (outside pronto) trycatch bloka onda ta funkcija moze da baca izuzetke vise tipova u principu
+
+void ALAHJEVELIKI() throw (int ,char*) 
+
+ti tipovi izuzetaka se bacaju hehe u toj funkc
+
+KOMPAJLER DRUKA NA GRESKU AKO :
+1. Nismo obradili neki tip podataka
+2. bacimo hehe neki tip podataka koj nije naveden GORE AIAENOFNEOFNAIFONEAFIAN
+
+
+MOGU I DA ZABRANIM FUNKCIJI DA DRUKA to jest da baca hehe izuzetke
+
+Marko Jack : A kako to izgleda kad zabranim funkciji da baca izzuetke??
+Pa to izgleda ovako :
+
+void BOL () throw () {}
+void JAD () noexcept {}
+
+KORISNICKI TIPOVI IZUZETAKA SU NAJJACA STVAR
+
+Preporucije se da se izvede iz klase exception
+
+
+IZUZECI U JAVI ?
+
+U javi je na isti fazon trycatch bloka medjutim postoji i FINALLY
+
+finally se izvrsava uvek bio izuzetak odrukan ili ne 
+
+sluzi da oslobodi resurse koji su zauzeti ako je izuzetak odrukan
+
+VRSTE IZUZETAKA U JAVI :
+
+Ako se neki objekat prijavljuje kao izuzetak on mora da bude izveden iz klase THROWABLE ( jer ne mozes da bacas hehe ono sto ne moze da se baca hehe)
+
+OSTALE KLASICE:
+Error , Exception , RuntimeException
+
+Error - (najzajebaniji baja) ova klasa sadrzi skup izuzetaka koje prijavljuje Java Virtual Machine koji ODMAH prekidaju program
+
+Exception  - osnovna klasa za skup izuzetaka izuzetaka koji se desavaju u programu - izazvani su pogrensim podacima , greskom programera
+
+RuntimeException - izuzeci koji se javlajuu tokom izvrsenja programa... ovo nastaje zbog greske programeraa
+
+CHECKED UNCHECKED
+
+UNCHECKED - u toku kompajliranja se ne provera dal su ovi izuzeci obradjeni
+klase : Exception i RuntimeException
+
+CHECKED - u toku kompajliranja se proverava sa li su izuzeci obradjeni
+klase : Error
+
+Kreiranje sopstvenih izuzetaka u javi :::
+
+public class MojIzuzetak extends Exception{
+	
+	public MojIzuzetak(){
+	super("PORUKA ZA IZUZETAK")
+	}
+}
+
+PROPAGACIJA IZUZETAKA
+
+Ako funkcija izbacuje checked izuzetke obavezan je throw u zaglavlju sa tipovima tih izuzetaka
+
+C#
+
+Ako pravimo sopstvene izuzetke nasledjuje se ApplicationException
+
+Konkurentno porogramiranje
+
+SAdrzi vise izvrsnih delova koji mogu biti istovremeno aktivni
+
+moze biti fizicka i logicka
+
+Fizicka - vise procesora
+Logicka- time sharing
+
+Leveli konkuretnog programiranja ->
+
+Insturukija
+naredba 
+potprogram
+program
+
+FORTRAN PARALELNE PETLJE :
+
+foraal(parameters){ statments; }
+
+Proces ,task thread ili nit je deo programa ko jse moze izvrsavati konkuretno sa ostalim procesima
+
+Proces se mora eksplicitno startovati
+Ako neki drugi modul startuje task ovaj prethodni proces se ne zaustavlja
+
+Sinhronizacija kod pristupa deljivih resursa - medjusobno iskljucivanje procesa kod pristupa zajednickim resursima 
+SEMAFOR , MONITORI
+
+Za komunikaciju izmedju procesa
+Razmena poruka
+
+SEMAFOR
+
+Sluzi za sinhronizaciju rada procesa sa zajednickim resursima 
+
+Brojac - pokazuje koliko procesa trneutni mogu da pristupe resursima
+Red cekanja - sadrzi informacije o procesiamo koji trneutno cekaju na svoj resurs
+
+operacije nad semaforima wait and release
+
+postoje i binarni semaforii
+
+PRODUCER - CONSUMER PROBLEM
+
+Vise procesora prave vise podataka i stavljaju ih u isti zajednicki buffer
+Vise procesa uzima podatke iz tog zajednicog buffer
+
+RESENJE :^P
+
+2 semafora - jedan sluzi za ubacivanje podataka u buffer a drugi sluzi za citanje
+3 semafora - jedan sluzi za ubacivanje podataka, drugi sluzi za citanje podataka a treci sluzi za regulaciju pristupa tom bufferu to jest samo jedan proces moze pristupiti tom pubberu
+
+MONITORRR
+
+Monitor je mehanizam koj sadrzi objedninjene resurse i funkcije za pristup istim 
+
+Ako neki proces pokusa da pristupi resursima a ti resursi su vec zauzeti ta nit ce biti suspednovana i stavljena u listu cekanja,nakon toga sto nit koja trenutno koristi monitor bude zavrsila sledeca nit iz liste cekanja prisupa monitoru
+
+PRO : Izbegava se istovremeni pristup resursima od stranje vise procesa
+
+P-jezici - > JAva,C#,Ada,Modulo 2
+
+SLANJE PORUKICAA
+
+Postoji asinhrono i sinhrono slanje porukica
+
+Asinhrono->postoji privatni buffer u koj se salje poruka od posaljioca iz tog buffera ce se poslati poruka primaocu kada je na to on spreman
+
+Sinhrono -> oba procesa funkcionisu asinhrono -> iz prvog procesa se salj poruka io n s eblokira dok ne dobije nazad povtrdu od drugog procesa
+
+
+NITI U JAVI
+
+Procesi u javi se definisu pomocu niti (threads)
+Nit je jedan tok u izvrsenju programa
+Ako hocemo da se neki delovi aplikacije izvrsavaju istvoremeno onda pravimo vise niti
+
+Zelis li da kreiras nit? E pa ne sekiraj se to izgleda ovako?
+
+Prvo u kalsi moramo da deklarismo da hocemo da je korsitimo kao nit
+Kako tu uraditi?
+
+Klasa ce nasledjivati klasu Thread ili ce implementirati interfjes zva Runnable
+
+Kreira se objekat za za tu klasu
+
+Pokrece se nit
+
+POKRETANJE NITI
+
+Ako hocemo da pokrenemo nit koja je deklarisana kao nasledjena od Thread
+koristimo metodu start nad tim objektom :P
+
+Ako hocemo da pokrenemo nit a klasa imlpementira interfejs runnable
+
+Kreira se objekat klase thread i tom objektu se pridodaje konstruktor klase koja implementira RUnnable
+Nad tim objektom se poziva metoda start
+
+public class Klasa extends Thread{
+	public void pokreni{}
+}
+Thread tred = new Klasa();
+tred.start();
+
+public class Klasa implements Runnable {
+	public void pokreni{}
+}
+
+Thread tred = new Thread (Klasa());
+tred.start();
+
+Metode u klasi Thread
+
+void sleep(int ms) - uspavljuje nit na odredjeno vreme u milisekundama
+void setDeamon(boolean a) -> nit postaje demonska i moze nastaviti sa svojim izvrsavanjem cak iako je nit koja ju je kreirala zavrsila posao.Obavezno se deklarise pre kreacione niti
+void join()->ceka da se nit za koju je pozvana metoda zavrsi posao
+void yield()->suspenduje se nit i daje se sansa da se niti koje su u listi cekanja izvrse
+strinGetName() -> vraca ime niti 	
+
+U javi se za sinhronizaciju koriste semafori i monitori
+
+KOnstruktor semfaora Semaphore(int permits)
+Metode
+void acquire
+void acquire(int permit)
+bool TryAcquire()
+bool TryAcqure(int permit)
+void release ()
+void release (int permit)
+
+SINHRONIZACIJA U JAVI
+
+ispred metode kljucna rec synchronized
+To objektu u toj metodi stavlja lock 	
+taj metod provera da li je objektu stavljen lock (felg koj zakljucava objekat) 
+
+ne mogu se vrsisti vise sinhronizovanih metoda nad jednim objektom , ali moze za razlicite objekte u isto vreme
+
+moze se staviti i na sam objekat synchronized (Object) to je sinhronizovani blok i ne moze se staviti ni jedan drugi blok na taj objekat
+
+nad ovakvim objektima i metodama se mogu pozvati metode wait() i notify()
+wait() -> obustavlja tekucu nit sve dok se ne pozove notify()
+notify() -> restartuje tekucu nit
+
+NITI U C#
+
+System.Threading
+glavna klasa Thread
+
+Najbitnija svojstva
+CurrentThread -> koja je trenutna nit?
+isAlive -> da li se nit trenutno izvrasava
+isBackground - > da li nit radi u pozadini
+Name - > ime 
+Priority -> prioritet
+
+Najbitnije metode
+
+Start
+Start(parametar)
+Abort(thread)
+Suspend(thread)
+Resume(thread)
+Sleep(time)
+Join()
+
+Sinhronizacija se vrsi 
+Zakljucavanje resursa
+Semaforom
+Monitorom
+Binarnim semaforom (Mutex)
+
+Zakljucavanje resursa
+
+LOCK(obj)
+koristi se kada neki edo koda u jednom trenutku moze da izvrsava samo jedna nit
+
+Monitor.Enter(obj)
+Monitor.Exit(obj)
+
+
+Zakljucavanje 
+
+lock(buffer){}
+
+Monitor
+
+Monitor.Enter(buffer)
+try{
+	//
+}
+finally{
+catch(){}
+Monitor.Exit(buffer)
+}
+
+MUTEX I SEMAFORCICI
+
+Mutex - omogucava da neku kriticnu sekciju u kodu izvrsi samo jedna nit
+Semafor - omogucava da neku kriticnu sekciju u kodu izvrsi N niti
+
+Prinicip
+
+Kreira se objekat Mutex ili Semaphore
+
+pozvati na taj deo WaitOne() ili Release()
+
+
+
+
+
+
+
+
+

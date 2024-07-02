@@ -1,0 +1,492 @@
+Oktobar 2 2023
+
+7.
+public class Klasa implements Interfejs{
+	private int x;
+	public Klasa (int x){
+	this.x=x;
+	}
+	public int zbir (Integer x){
+	return x.intValue()+this.x;
+	}
+	@override 
+	public int zbir(int x){
+	   return this.x+x;
+	}
+	@override 
+	public double proizvod(double x){
+	return this.x*x;
+	}
+}
+public interface Interfejs{
+	public int zbir(int x);
+	public double proizvod(double x);
+}
+
+8.
+public void izdatoteke(String path){
+	try{
+	FileReader r = new FileReader(path);
+	BufferedReader b = new BufferedReader(r);
+	String razlomak;
+	razlomak = b.readLine();
+	b.close();
+	double imenilac;
+	double brojilac;
+	imenilac = Double.parseDouble(String.valueOf(razlomak.charAt(0)));
+	brojilac = Double.parseDouble(String.valueOf(razlomak.charAt(2)));
+	if(imenila==0){
+	throw new NijeDobro("blabla");
+	}
+	FileOutputStream f1 = new FileOutputStream ("dd.bin");
+	BufferedOutputStream b1= new BufferedOutputStream(f1);
+    b1.write(brojilac/imenilac);
+    b1.close
+    }
+	catch(Nijedobro nije){
+	System.out.println(nije.GetMessage());
+	}
+	catch(IOexception e){
+	System.out.println(e);
+	}
+	catch(IOexception e){
+	System.out.println(e);
+	}
+}
+
+9. 
+public class BankovniRacun implements Runnable{
+	private int stanje;
+	public  synchonized int promena(int d){
+          stanje = stanje +d;
+	}
+	public synchronized void citaj (){
+	Console.Out.Writeline(stanje);
+	}
+	@override 
+	public void run (){
+	try{
+	InputStreamReader tast = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(tast);
+    String red;
+
+  red = br.readLine(); 
+  int promena = Int.ParseInt(red);
+  b.close();    
+  }      
+  catch(IOException izuz)
+  {
+  System.out.println("Izuzetak pri citanju: "+izuz);
+  }
+  }
+}
+	public static void main(String[] args) {
+        BankovniRacun racun = new BankovniRacun();
+        Thread t = new Thread(racun);
+        t.start();
+    }
+
+
+10.
+
+  public static int zbir(params int[] brojevi){
+  zbir=0;
+     for(int i=0;i<brojevi.Lenght;i++){
+          int kvadrat = 0;
+          kvadrat = brojevi[i]*brojevi[i];
+          zbir=zbir+kvadrat;
+     }
+     return zbir;
+  }
+
+  public static void main(string args[]){
+     zbir(1,2,3,4,5);
+  }
+
+  11.
+
+  Krug poluprecnika 1
+  Valjka popuprecnika osnove 1 i visine 1
+  Povrsina 12.6
+  Zapremina 12.6
+
+  12.
+
+  a) izbacuje gresku zato sto lista uopste nije indeksirana
+  b) Nula
+     Jedan
+     Dva
+
+     Ako koristimo Dictionary uzima se poslednja vrednost
+
+
+  Oktobar 2023
+
+  7.
+  public class Kocka extends Kvadrat{
+   Public Kocka (dobule a):super(a){}
+   public double povrsina (){
+     return 6*super.povrsina();
+   }
+  }
+  8.
+   public void izBin(String path){
+    try{
+   FileInputStream f = new FileInputStream(path);
+   BufferedInputStream b = new BufferedInputStream(f);
+   DataInputStream d = new DataInputStream(b);
+   this.a = d.readDouble();
+   d.close();
+    }
+    catch(IOException e){
+    System.out.println(e);
+    }
+   }
+
+   public void izTXT(String path){
+    try{
+    FileReader fr = new FileReader(path);
+    BufferedReader br = new BufferedReader(fr);
+    this.a = Double.parseDouble(br.readLine());
+    br.close();
+    }
+    catch(IOException e){
+     System.out.println(e);
+    }
+   }
+   9.
+   public class Kocka extends Kvadrat implements Runnable{
+       public Kocka(double a ){
+       super(a)
+       }
+       public double povrsina(){
+       return 6*super.povrsina();
+       }
+       @Override 
+       public void run(){
+         double povrsinaa=povrsina();
+         System.Out.println(povrsinaa);
+       }
+   }
+
+   public static void Main(String [] args){
+     Kocka k = new Kocka(3);
+     Thread t1 = new Thread(k);
+     t1.start();
+   }
+   11.
+   public class NizEnumerator<T> : IEnumerator<T>{
+    T[] niz;
+    int polozaj=-1;
+    public NizEnumerator(T[] nizz){
+    niz=nizz;
+    }
+    public T Current{
+    get{return niz[polozaj];}
+    }
+    public bool MoveNext(){
+      if(pozicija >niz.Length-1){
+      return false;
+      }
+      else{
+      pozicija++;
+      return true;
+      }
+    }
+    public void Reset(){
+    pozicija=-1;
+    }
+   }
+   public interface IEnumerator<T>{
+   T Current{get;}
+   bool MoveNext();
+   void Reset();
+   }
+
+   10.
+   public static bool operator > (GeoTelo g1 , GeoTelo g2){
+   return g1.Zapremina > g2.Zapremina;
+   }
+   public static bool operator < (Geotelo g1,Geotelo g2){
+   return g1.Zapremina < g2.Zapremina;
+   }
+
+   jun 2
+
+   7.
+
+   interface I1{
+   void m1();
+   }
+   interface I2{
+   void m2();
+   }
+   interface I3{
+   void m3();
+   }
+
+   public class K1 implements I1,I2{
+
+   @override
+   public void m1(){
+   //blabla
+   }
+   @override
+   public void m2(){
+   //blablabla
+   }
+   }
+
+   public class K2 implements I2,I3{
+   @override
+   public void m2(){
+   //blabla
+   }
+   public void m3(){
+   //blabla
+   }
+   }
+
+   public class K3 implements I1,I3{
+   public void m1(){
+   //blabla
+   }
+   public void m3(){
+   //blabla
+   }
+   }
+
+   public static void main(String args[]){
+      int velicina=10;
+      if(velicina % 2 != 0){
+      throw new IllegalArgumentException("blablala")
+      }
+      Object array[]=new Object [velicina]
+      for (int i=0;i<velicna/2;i++){
+      array[i]=new K1();
+      }
+      for(int i=velicina/2;i<velicina;i++){
+      array[i]=new K2;
+      }
+   }
+
+8.
+
+public class K2{
+  public K2(){}
+  public void Dozvoljen(){
+  //traktor
+  }
+  public final void Zabranjen(){
+  //ne
+  }
+}
+
+9. 
+public class Nit1 implements Runnable{
+  @override
+  public void run(){
+  for(int i=0;i<5;i++){
+  System.out.println(Thread.currentThread.getName());
+  try{
+  Thread.sleep(5000);
+  }
+  catch(Exception e){
+  System.out.println("dwawdwad");
+  }
+  }
+  }
+}
+public class Nit2 implements Runnable{
+  @override
+  public void run(){
+  for(int i=0;i<5;i++){
+  System.out.println(Thread.currentThread().getName());
+  try{
+  Thread.sleep(3000);
+  }
+  catch(Excetpion e){
+  System.out.println("vawvwav");
+  }
+  }
+  }
+}
+public static void main(String[] args){
+  Nit1 n = new Nit1();
+  Nit2 e = new Nit2();
+  Thread t1 = new Thread(n);
+  Thread t2 = new THread(e);
+  t1.start();
+  t2.start();
+}
+
+10.
+
+a) 
+0 + j0
+1 + j1
+2 + j2
+3 + j3
+b)
+NullReferenceException
+
+11.
+static void Main(string[]args){
+  double pi = 3.14;
+  DateTime danas = DateTime.Today
+  KompleksniBroj kompleksni = new KompleksniBroj(1.0f,1.0f);
+  Inkrement(pi,danas,kompleksni);
+  Console.WriteLine(pi);
+  Console.WriteLine(danas.DayOfWeek);
+  Console.WriteLine(kompleksni);
+}
+private static void Inkrement(double pi ,DateTime danas , KompleksniBroj kompleksni){
+  pi++;
+  danas.AddDays(1);
+  kompleksni.Realni++;
+  kompleksni.Imaginarni++;
+}
+
+OUTPUT:
+3.14
+Trenutni dan u nedelji
+1 + j1
+
+//pi i daytime prosljedeno po vrednosti znaci ne menja se , Kompleksi prosledjeni po referenci menja se
+
+Jun 2022
+
+9.
+public static int [] [] kreiraj(int dimenzija){
+  int [] [] matrica = new int [dimenzija][dimenzija] ;
+  for(int i=0;i<dimenzija;i++){
+   if(i%2==0){
+   for(int j=0;j<dimenzija;j++){
+   matrica[i][j]=1;
+   }
+   else{
+   for(int j=0;j<dimenzija;j++){
+    matrica[i][j]=(int)(Math.random()*10)+1;
+   }
+   }
+   }
+  }
+  return matrica;
+}
+10.
+public class Elementi (){
+  private int prvi;
+  private int zadnji;
+  private int srednji;
+
+  public Elementi(int a , int b , int c){
+    this.prvi=a;
+    this.srednji=b;
+    this.zadnji=c;
+  }
+  public void Odredi(int [] a){
+  this.prvi= a[0];
+  this.srednji= a[a.length/2];
+  this.zadnji= a[a.length-1];
+  }
+}
+
+public static void Main(string args[]){
+  int [] niz = {1,2,3,4,5};
+  Elementi a = new Elementi();
+  a.Odredi(niz);
+}
+
+public class Main {
+    public static int[] funkcija(int[] niz) {
+        int prvi = niz[0];
+        int zadnji = niz[niz.length - 1];
+        int srednji = niz[niz.length / 2];
+        return new int[] {prvi, zadnji, srednji};
+    }
+
+    public static void main(String[] args) {
+        int[] niz = {1, 2, 3, 4, 5, 6, 7};
+        int[] rezultat = funkcija(niz);
+        System.out.println("Prvi: " + rezultat[0]);
+        System.out.println("Zadnji: " + rezultat[1]);
+        System.out.println("Srednji: " + rezultat[2]);
+    }
+}
+public class Main {
+    public static List<Integer> funkcija(int[] niz) {
+        int prvi = niz[0];
+        int zadnji = niz[niz.length - 1];
+        int srednji = niz[niz.length / 2];
+        List<Integer> rezultat = new ArrayList<>();
+        rezultat.add(prvi);
+        rezultat.add(zadnji);
+        rezultat.add(srednji);
+        return rezultat;
+    }
+
+    public static void main(String[] args) {
+        int[] niz = {1, 2, 3, 4, 5, 6, 7};
+        List<Integer> rezultat = funkcija(niz);
+        System.out.println("Prvi: " + rezultat.get(0));
+        System.out.println("Zadnji: " + rezultat.get(1));
+        System.out.println("Srednji: " + rezultat.get(2));
+    }
+}
+
+11. public class Buffer implements Runnable {
+  
+  private int[] buffer;
+  private final int maksvel;
+  private int trenutno;
+
+  Buffer(int maksvel){
+  buffer = new int [maksvel];
+  trenutno =0;
+  }
+
+  public synchonized void dodaj (int indeks,int element) throws Exception {
+
+        if(indeks<0 || indeks > buffer.length){
+        throw new Exception ("dwadw");
+        }
+        if(trenutno == buffer.length){
+        throw new Exception ("dddd");
+        }
+        for(int i = trenutno;i>indeks;i--){
+        buffer[i]=buffer[i-1];
+        }
+        buffer[indeks]=element;
+        tretnutno ++;
+  }
+  public synchronized void oduzmi (int indeks){
+        if(indeks<0 || indeks > buffer.length){
+        throw new Exception ("dwadw");
+        }
+        for(int i=indeks;i<trenutno-1;i++){
+        buffer[i]=buffer[i+1];
+        }
+        buffer[trenutno-1]=0;
+        trenutno--
+  }
+  @override 
+  public void run (){
+  try{
+  for(int i=0;i<10;i++){
+      dodaj(trenutno,i);
+  }
+  for(int i=0;i<10;i++){
+  oduzmi(0);
+  }
+  catch(Exception e){
+      e.PrintStackTrace();
+  }
+  }
+
+public static void main(String args[]){
+  
+  Buffer b = new Buffer(30);
+  Thread t1 = new Thread(b);
+  t1.start();
+}
+
